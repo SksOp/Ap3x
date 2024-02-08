@@ -99,7 +99,6 @@ function Navbar() {
         <div className="">
           <img src="logo.png" alt="Logo" className="h-10" />
         </div>
-        <Logo />
         <div className="absolute right-2">
           <Icon icon="bi:justify" className="text-xl" />
       </div>
