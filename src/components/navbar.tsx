@@ -20,6 +20,8 @@ import { MoonIcon, SunIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
 import { paths } from "../router/paths";
+import { Icon } from "@iconify/react";
+import Logo from "./logo";
 
 const navigation = [
   {
@@ -93,60 +95,70 @@ function Navbar() {
   const isAuthenticated = true;
 
   return (
-    <nav className="w-full bg-background flex justify-center items-center  z-10   px-3 py-5 sticky top-0 border-b-2">
-      <div className=" max-w-7xl w-full flex justify-between items-center">
-        <a href="/">
-          <h3 className=" text-lg font-bold">Absolute Video</h3>
-        </a>
-        <NavigationMenu className="hidden md:block">
-          <NavigationMenuList className="gap-4">
-            {isAuthenticated ? (
-              navigation.map((item) => (
-                <NavigationMenuItem key={item.name}>
-                  <a href={item.href}>
-                    <NavigationMenuLink>{item.name}</NavigationMenuLink>
-                  </a>
-                </NavigationMenuItem>
-              ))
-            ) : (
-              <NavigationMenuItem>
-                <a href={paths.login}>
-                  <Button variant="secondary">
-                    <NavigationMenuLink>Login</NavigationMenuLink>
-                  </Button>
-                </a>
-              </NavigationMenuItem>
-            )}
-
-            <NavigationMenuItem>
-              <ThemeSwitcher />
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <NavigationMenu className="md:hidden">
-          <NavigationMenuList className="gap-4">
-            {isAuthenticated ? (
-              <NavigationMenuItem>
-                <HamburgerMenu />
-              </NavigationMenuItem>
-            ) : (
-              <NavigationMenuItem>
-                <a href={paths.login}>
-                  <Button variant="secondary">
-                    <NavigationMenuLink>Login</NavigationMenuLink>
-                  </Button>
-                </a>
-              </NavigationMenuItem>
-            )}
-            <NavigationMenuItem>
-              <ThemeSwitcher />
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+      <nav className="relative p-4 mb-4 flex justify-center items-center">
+        <div className="">
+          <img src="logo.png" alt="Logo" className="h-10" />
+        </div>
+        <Logo />
+        <div className="absolute right-2">
+          <Icon icon="bi:justify" className="text-xl" />
       </div>
-    </nav>
-  );
-}
+      </nav>
+    );
+  }
+  
+  export default Navbar;
+  
+  // <nav className="w-full bg-background flex justify-center items-center  z-10   px-3 py-5 sticky top-0 border-b-2">
+  //   <div className=" max-w-7xl w-full flex justify-between items-center">
+  //     <a href="/">
+  //       <h3 className=" text-lg font-bold">Absolute Video</h3>
+  //     </a>
+  //     <NavigationMenu className="hidden md:block">
+  //       <NavigationMenuList className="gap-4">
+  //         {isAuthenticated ? (
+  //           navigation.map((item) => (
+  //             <NavigationMenuItem key={item.name}>
+  //               <a href={item.href}>
+  //                 <NavigationMenuLink>{item.name}</NavigationMenuLink>
+  //               </a>
+  //             </NavigationMenuItem>
+  //           ))
+  //         ) : (
+  //           <NavigationMenuItem>
+  //             <a href={paths.login}>
+  //               <Button variant="secondary">
+  //                 <NavigationMenuLink>Login</NavigationMenuLink>
+  //               </Button>
+  //             </a>
+  //           </NavigationMenuItem>
+  //         )}
 
-export default Navbar;
+  //         <NavigationMenuItem>
+  //           <ThemeSwitcher />
+  //         </NavigationMenuItem>
+  //       </NavigationMenuList>
+  //     </NavigationMenu>
+
+  //     <NavigationMenu className="md:hidden">
+  //       <NavigationMenuList className="gap-4">
+  //         {isAuthenticated ? (
+  //           <NavigationMenuItem>
+  //             <HamburgerMenu />
+  //           </NavigationMenuItem>
+  //         ) : (
+  //           <NavigationMenuItem>
+  //             <a href={paths.login}>
+  //               <Button variant="secondary">
+  //                 <NavigationMenuLink>Login</NavigationMenuLink>
+  //               </Button>
+  //             </a>
+  //           </NavigationMenuItem>
+  //         )}
+  //         <NavigationMenuItem>
+  //           <ThemeSwitcher />
+  //         </NavigationMenuItem>
+  //       </NavigationMenuList>
+  //     </NavigationMenu>
+  //   </div>
+  // </nav>
