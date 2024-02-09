@@ -45,7 +45,7 @@ const navigation = [
 function Navbar() {
   return (
     <nav className="fixed w-full top-0 z-10 p-4 mb-4 flex justify-center items-center">
-      <LogoHolderBox className="absolute backdrop-blur-md " />
+      <LogoHolderBox className="absolute  " />
       <div className="">
         <img
           src="logo.png"

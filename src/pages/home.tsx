@@ -14,6 +14,7 @@ function page() {
     <>
       <Layout>
         <Intro />
+        <Investor />
       </Layout>
     </>
   );
