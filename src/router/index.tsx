@@ -12,14 +12,6 @@ const root = [
     path: paths.root,
     element: <Home />,
   },
-  {
-    path: paths.login,
-    element: <>Login</>,
-  },
-  {
-    path: paths.logout,
-    element: <>Logout</>,
-  },
   { path: "*", element: <Navigate to="/404" replace /> },
 ];
 
