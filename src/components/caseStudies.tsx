@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/card";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { TextPlugin } from 'gsap/TextPlugin';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from "gsap/TextPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -48,45 +49,46 @@ const cardItems = [
 ];
 
 function CaseStudies() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionsRef = useRef<HTMLDivElement>(null);
 
-    const containerRef = useRef<HTMLDivElement>(null);
-    const sectionsRef = useRef<HTMLDivElement[]>([]); 
-    
-    gsap.to(sectionsRef.current, {
-      xPercent: -100 * (cardItems.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        pin: true,
-        scrub: 0.5,
-        snap: 1 / (cardItems.length - 1),
-        end: () => "+=" + containerRef.current?.offsetWidth,
-      },
-    })
-    // https://codesandbox.io/p/sandbox/gsap-react-horizontal-scroll-mr4gb1?file=%2Fsrc%2Fscenes%2FScene.jsx
-    
-    
+  
+  
 
   return (
     <div className="my-4">
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-4">Centered Heading</h1>
-        <div className="bg-white shadow-md rounded-lg p-6 overflow-x-auto" ref={containerRef}>
-        <div className="flex overflow-hidden" >
-        {cardItems.map((item, index) => (
-          <div key={index} className="w-screen h-[]" ref={(el) => (sectionsRef.current[index] = el as HTMLDivElement)}>
-            <Card>
+        <div
+          className="bg-white shadow-md rounded-lg p-6 overflow-x-auto"
+          ref={containerRef}
+        >
+          <div
+            ref={sectionsRef}
+            className={cn(
+              `w-[${cardItems.length * 100}%]`,
+              "h-screen max-h-screen flex flex-nowrap hide-scrollbar"
+            )}
+            >
+            <Card className="w-screen bg-blue-100 " ref={sectionsRef}>
               <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
+                <CardTitle>{cardItems[0].title}</CardTitle>
+                <CardDescription>{cardItems[0].description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>Date: {item.date}</p>
+                <p>Date: {cardItems[0].date}</p>
+              </CardContent>
+            </Card>
+            <Card className="w-screen bg-blue-100 " ref={sectionsRef}>
+              <CardHeader>
+                <CardTitle>{cardItems[0].title}</CardTitle>
+                <CardDescription>{cardItems[0].description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>Date: {cardItems[0].date}</p>
               </CardContent>
             </Card>
           </div>
-        ))}
-        </div>
         </div>
       </div>
     </div>
