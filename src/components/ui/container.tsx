@@ -10,14 +10,14 @@ function Container({
   className?: clsx.ClassValue;
 }) {
   return (
-    <main
+    <div
       className={cn(
         "w-full bg-background flex justify-center items-center ",
         className
       )}
     >
       <div className=" max-w-7xl w-full">{children}</div>
-    </main>
+    </div>
   );
 }
 
