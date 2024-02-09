@@ -1,13 +1,24 @@
-import React from 'react'
+import { cn } from "@/lib/utils";
+import { ClassValue } from "clsx";
+import React from "react";
 
-function Logo() {
+function Logo({
+  className,
+  logoClassName,
+}: {
+  className?: ClassValue;
+  logoClassName?: ClassValue;
+}) {
   return (
-    <div className="relative h-20 w-40 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-white transform skew-x-12 rounded-lg border border-blue-500">
-        <img className="w-full h-full object-cover" src="logo.png" alt="Your Image" />
-      </div>
+    <div className={cn("w-40 ", className)}>
+      <img
+        src="logo.png"
+        alt="Logo"
+        className="w-full h-auto"
+        draggable={false}
+      />
     </div>
-  )
+  );
 }
 
-export default Logo
+export default Logo;
