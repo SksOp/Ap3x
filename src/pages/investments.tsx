@@ -1,12 +1,12 @@
 import Layout from "@/components/layout";
-import Home from "@/sections/home";
+import Investments from "@/sections/investments";
 
 
 function page() {
   return (
     <>
       <Layout>
-        <Home />
+        <Investments />
       </Layout>
     </>
   );
