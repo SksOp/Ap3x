@@ -78,7 +78,10 @@ export function Menu({
   );
   return (
     <>
-      <Hamburger variant="dark" setIsMenuOpen={setIsMenuOpen} />
+      <Hamburger
+        variant={isMenuOpen ? "dark" : "light"}
+        setIsMenuOpen={setIsMenuOpen}
+      />
 
       <div
         ref={menuRef}
@@ -87,7 +90,7 @@ export function Menu({
         {menuItems.map((item) => (
           <MenuItems key={item.name} item={item} />
         ))}
-        <div className="w-full flex justify-center p-4 cursor-pointer mt-5  bg-[#E3E8EF] rounded-full ">
+        <div className="w-full m-4 flex justify-center p-4 cursor-pointer mt-5  bg-[#E3E8EF] rounded-full ">
           <Logo />
         </div>
       </div>
