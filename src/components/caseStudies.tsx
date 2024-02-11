@@ -62,15 +62,15 @@ function CaseStudies() {
     () => {
       const sections = gsap.utils.toArray(sectionsRef.current);
       gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
+        xPercent: -100 * sections.length,
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
           pin: true,
-          scrub: 4,
+          scrub: 1,
           start: "top 5%",
           markers: true,
-          // snap: (1 / 2) * (sections.length - 1),
+          // snap: 1 / (sections.length - 1),
           end: () => "+=" + Number(containerRef.current?.offsetWidth),
         },
       });
@@ -98,14 +98,14 @@ function CaseStudies() {
           <div
             key={item.title}
             className=" min-w-[100vw] max-w-[100vw] flex items-center justify-center "
+            ref={(el) => {
+              if (!el) return;
+              sectionsRef.current.push(el);
+            }}
           >
             <Card
               key={item.title}
               className=" bg-white/35 m-2 flex  max-w-[90vw] p-10 flex-col justify-center min-h-[80vh] "
-              ref={(el) => {
-                if (!el) return;
-                sectionsRef.current.push(el);
-              }}
             >
               <CardHeader>
                 <CardTitle className=" text-4xl lg:text-8xl max-w-[60vw] ">
@@ -124,6 +124,26 @@ function CaseStudies() {
             </Card>
           </div>
         ))}
+        <div
+          className=" min-w-[100vw] max-w-[100vw] flex items-center justify-center "
+          ref={(el) => {
+            if (!el) return;
+            sectionsRef.current.push(el);
+          }}
+        >
+          <Card className=" bg-white/35 m-2 flex  max-w-[90vw] p-10 flex-col items-center justify-center min-h-[80vh] ">
+            <CardHeader>
+              <CardTitle className=" text-4xl text-center lg:text-8xl max-w-[60vw] ">
+                Read More at Medium
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <a href={"/"} className="text-lg mx-auto underline">
+                <Button className=" rounded-none px-4">Click Here</Button>
+              </a>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
