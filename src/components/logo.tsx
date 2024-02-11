@@ -11,12 +11,14 @@ function Logo({
 }) {
   return (
     <div className={cn("w-40 ", className)}>
-      <img
-        src="logo.png"
-        alt="Logo"
-        className="w-full h-auto"
-        draggable={false}
-      />
+      <a href="/">
+        <img
+          src="logo.png"
+          alt="Logo"
+          className="w-full h-auto"
+          draggable={false}
+        />
+      </a>
     </div>
   );
 }

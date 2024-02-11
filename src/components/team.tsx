@@ -28,7 +28,7 @@ const Team: React.FC<Props> = (props) => {
           trigger: cardRef.current,
           start: "top 90%",
           toggleActions: "play reverse play reverse",
-          markers: true,
+          // markers: true,
         },
         y: 300,
         ease: "power3.out",
