@@ -38,7 +38,7 @@ export function Hamburger({
     <Button
       variant={"link"}
       onClick={() => setIsMenuOpen((prev) => !prev)}
-      className="fixed z-[12] top-2 right-2"
+      className="fixed z-[31] top-2 right-2"
     >
       <HamburgerIcon className="w-10 " variant={variant ?? "light"} />
     </Button>
@@ -82,7 +82,7 @@ export function Menu({
 
       <div
         ref={menuRef}
-        className="fixed backdrop-blur-md w-[95vw] h-[95vh] top-[50%] left-[50%]  translate-x-[-50%] translate-y-[-50%] bg-background/70 z-10 flex flex-col justify-center items-start "
+        className="fixed backdrop-blur-md w-[95vw] h-[95vh] top-[50%] left-[50%]  translate-x-[-50%] translate-y-[-50%] bg-background/70 z-[30] flex flex-col justify-center items-start "
       >
         {menuItems.map((item) => (
           <MenuItems key={item.name} item={item} />
@@ -119,7 +119,7 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
     gsap.to(bgRef.current, {
       opacity: 1,
       backgroundColor: "#fff",
-      zIndex: 3,
+      zIndex: 35,
       x: 0,
     });
   };
@@ -128,7 +128,7 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
     gsap.to(bgRef.current, {
       opacity: 0,
       backgroundColor: "#E3E8EF",
-      zIndex: 1,
+      zIndex: 31,
       x: "200%",
     });
   };
@@ -161,7 +161,7 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
       <div
         ref={bgRef}
         className={cn(
-          "h-full absolute w-full z-1 top-0 bg-[#E3E8EF] ",
+          "h-full absolute w-full z-[31] top-0 bg-[#E3E8EF] ",
           "mix-blend-difference  "
         )}
       />
@@ -176,7 +176,7 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
       <p
         ref={anchorRef}
         className={cn(
-          "relative text-2xl z-2 px-4 p-2 md:text-8xl font-bold  text-black"
+          "relative text-2xl z-[30] px-4 p-2 md:text-8xl font-bold  text-black"
         )}
       >
         {item.name}

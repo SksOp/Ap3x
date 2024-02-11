@@ -10,7 +10,7 @@ interface Props {
 
 const Category: React.FC<Props> = ({ headingText, text, imgUrl, btnUrl }) => {
   return (
-    <div className="container mx-auto my-auto bg-black">
+    <div className="container mx-auto my-auto ">
       <div className="flex items-center">
         <h2 className="text-xl font-bold text-secondary-foreground">
           {headingText}
