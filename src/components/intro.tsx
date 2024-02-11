@@ -15,7 +15,7 @@ function Intro() {
         <Button variant="secondary" size="default" className="relative z-[1] mt-4">
           Get Started
         </Button>
-        <World className="absolute z-0" />
+        <Mountain className="absolute z-0 top-0 bg-[#E3E8EF]" />
       </div>
     // </div>
   );
@@ -38,14 +38,14 @@ function Model({ url }: {url : string}) {
       <primitive  object={scene} />
   );
  }
-function World({className}:{  className?:ClassValue}) {
+function Mountain({className}:{  className?:ClassValue}) {
      // Update this path to your model's location
 //   const modelScale = [10, 10, 10];
   const modelPosition = [0, 0, 0];
 
   return (
     // <div style={{backgroundColor: "white", height: '90vh', width: '100%', overflow: 'hidden' }}>
-    <div className={cn("bg-white h-screen w-full overflow-hidden ",className)}>
+    <div className={cn("bg-white h-full w-full overflow-hidden ",className)}>
       {/* Set overflow to 'hidden' to prevent scrolling */}
       <Canvas>
         {/* Set camera position and field of view */}
