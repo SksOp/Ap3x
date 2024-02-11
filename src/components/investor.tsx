@@ -14,7 +14,7 @@ const images = [
 
 function Investor() {
   return (
-    <div className="flex flex-col items-center  py-20 relative">
+    <div className="flex bg-white flex-col items-center  py-20 relative">
       <Slant className="absolute top-0 w-full translate-y-[-49%] " />
       <h1 className="text-xl font-bold mb-4">Investors</h1>
       <div className="grid grid-cols-4 gap-4">

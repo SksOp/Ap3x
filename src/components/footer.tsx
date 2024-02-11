@@ -4,8 +4,8 @@ import Container from "./ui/container";
 
 function Footer() {
   return (
-    <footer className="p-10">
-      <Container className="justify-center items-center p-8 md:p-16 lg:p-2">
+    <footer className="p-10 bg-white">
+      <Container className="justify-center bg-white items-center p-8 md:p-16 lg:p-2">
         <div className="relative my-10">
           <img src="./logo.png" alt="Logo" className="w-40 h-auto" />
         </div>
