@@ -30,13 +30,13 @@ function ResearchView({ data }: { data: ResearchData[] }) {
         gsap.from(el, {
           scrollTrigger: {
             trigger: el,
-            start: "top 80%",
+            start: "top 90%",
             toggleActions: "play reverse play reverse",
+            markers: true,
           },
           y: 100,
           opacity: 0,
           duration: 1,
-          delay: index * 0.3,
         });
       });
     },

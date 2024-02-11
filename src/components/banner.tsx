@@ -12,7 +12,7 @@ const Banner = ({ text }: { text: string }) => {
         <img
           src="./banner.png"
           alt="barcode"
-          className="hidden md:block w-auto h-full object-cover"
+          className=" w-auto h-full object-cover"
         />
       </div>
       <p className="relative z-10 text-background text-center text-4xl md:text-7xl lg:text-8xl xl:text-[10rem] font-bold uppercase">
