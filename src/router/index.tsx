@@ -25,7 +25,7 @@ const root = [
     element: <Investments />,
   },
   {
-    path: paths.teams,
+    path: paths.team,
     element: <Teams />,
   },
   { path: "*", element: <Navigate to="/404" replace /> },

@@ -5,21 +5,6 @@ import { useState } from "react";
 import Menu, { Hamburger } from "./menu";
 import Logo from "./logo";
 
-const navigation = [
-  {
-    name: "Contacts",
-    href: "#",
-  },
-  {
-    name: "Service Request",
-    href: "#",
-  },
-  {
-    name: "Brands",
-    href: "/brands",
-  },
-];
-
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (

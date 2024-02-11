@@ -6,27 +6,24 @@ import { useGSAP } from "@gsap/react";
 import Logo from "./logo";
 import { useActiveLink } from "@/hooks/useRouter";
 import { cn } from "@/lib/utils";
+import { paths } from "@/router";
 
 const menuItems = [
   {
     name: "Home",
-    href: "/",
+    href: paths.root,
   },
   {
-    name: "About",
-    href: "/about",
+    name: "Inestments",
+    href: paths.investments,
   },
   {
-    name: "Services",
-    href: "/services",
+    name: "Research",
+    href: paths.research,
   },
   {
-    name: "Brands",
-    href: "/brands",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
+    name: "Team",
+    href: paths.team,
   },
 ];
 
@@ -101,11 +98,11 @@ export function Menu({
 export default Menu;
 
 function MenuItems({ item }: { item: { name: string; href: string } }) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLAnchorElement>(null);
   const bgRef = React.useRef<HTMLDivElement>(null);
-  const anchorRef = React.useRef<HTMLAnchorElement>(null);
+  const anchorRef = React.useRef<HTMLParagraphElement>(null);
 
-  const isActive = useActiveLink(item.href);
+  const isActive = useActiveLink(item.href, false);
   gsap.defaults({ duration: 0.5, ease: "power2.out" });
 
   const initialiseGsap = () => {
@@ -156,7 +153,11 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
   );
 
   return (
-    <div ref={containerRef} className="w-full  relative overflow-hidden ">
+    <a
+      ref={containerRef}
+      className="w-full  relative overflow-hidden "
+      href={item.href}
+    >
       <div
         ref={bgRef}
         className={cn(
@@ -172,15 +173,14 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
           )}
         />
       )}
-      <a
-        href={item.href}
+      <p
         ref={anchorRef}
         className={cn(
           "relative text-2xl z-2 px-4 p-2 md:text-8xl font-bold  text-black"
         )}
       >
         {item.name}
-      </a>
-    </div>
+      </p>
+    </a>
   );
 }
