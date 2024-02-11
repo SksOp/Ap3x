@@ -14,7 +14,7 @@ const menuItems = [
     href: paths.root,
   },
   {
-    name: "Inestments",
+    name: "Investments",
     href: paths.investments,
   },
   {
