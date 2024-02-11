@@ -1,14 +1,14 @@
 import Banner from "@/components/banner"
-import Category from "@/components/category"
+import InvestmentsCard from "@/components/investments"
 import Container from "@/components/ui/container"
+import { investment } from "./constants"
 
 function Investments() {
   return (
     <Container>
     <>  
         <Banner text="Investments"/>
-        <Category headingText="Chain" text="Absolute"/>
-        <Category headingText="Industry" text="Absolute"/>
+        <InvestmentsCard investments={investment} />
     </>
     </ Container>
   )
