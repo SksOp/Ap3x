@@ -69,7 +69,7 @@ function CaseStudies() {
           pin: true,
           scrub: 1,
           start: "top 5%",
-          markers: true,
+          // markers: true,
           // snap: 1 / (sections.length - 1),
           end: () => "+=" + Number(containerRef.current?.offsetWidth),
         },
@@ -79,10 +79,10 @@ function CaseStudies() {
   );
 
   return (
-    <div className="my-10 relative bg-[#E3E8EF]">
+    <div className="py-10 relative bg-[#E3E8EF]">
       <Slant
         fill="#E3E8EF"
-        className="absolute top-0 w-full translate-y-[-49%] "
+        className="absolute top-0 w-full translate-y-[-50%] "
       />
       <h1 className="text-3xl mb-4 font-bold w-full py-5 text-center">
         Case studies
