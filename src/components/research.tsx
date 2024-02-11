@@ -32,7 +32,7 @@ function ResearchView({ data }: { data: ResearchData[] }) {
             trigger: el,
             start: "top 90%",
             toggleActions: "play reverse play reverse",
-            markers: true,
+            // markers: true,
           },
           y: 100,
           opacity: 0,
