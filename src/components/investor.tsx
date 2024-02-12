@@ -19,14 +19,14 @@ const investments = [
 ]
 
 const images = [
-  "/investors.png",
-  "/investors.png",
-  "/investors.png",
-  "/investors.png",
-  "/investors.png",
-  "/investors.png",
-  "/investors.png",
-  "/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
+  "./assets/investors.png",
 ];
 
 function Investor() {

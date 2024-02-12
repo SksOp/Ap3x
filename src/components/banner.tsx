@@ -5,12 +5,12 @@ const Banner = ({ text }: { text: string }) => {
     <div className="relative mb-12 md:mb-32  my-32 mt-40 ">
       <div className=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-20 md:h-40 flex justify-center items-center">
         <img
-          src="./banner.png"
+          src="./assets/banner.png"
           alt="barcode"
           className=" w-auto h-full object-cover"
         />{" "}
         <img
-          src="./banner.png"
+          src="./assets/banner.png"
           alt="barcode"
           className=" w-auto h-full object-cover"
         />

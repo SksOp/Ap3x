@@ -13,7 +13,7 @@ function Logo({
     <div className={cn("w-40 ", className)}>
       <a href="/">
         <img
-          src="logo.png"
+          src="./assets/logo.png"
           alt="Logo"
           className="w-full h-auto"
           draggable={false}

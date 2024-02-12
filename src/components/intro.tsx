@@ -55,19 +55,11 @@ function Mountain({ className }: { className?: ClassValue }) {
           far={2000}
         />
         <ambientLight intensity={0.1} />
-        <directionalLight
-          position={[5, 0, 5]}
-          color={"#E3E8EF"}
-          intensity={2}
-        />
-        <directionalLight
-          position={[-5, 0, 5]}
-          color={"#E3E8EF"}
-          intensity={2}
-        />
-        <group rotation={[4.86, 4.7, 4.75]}>
-          <Model url={"mountain.glb"} />
-          {/* <Model url={"globe.glb"} position={modelPosition}/> */}
+        <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+        <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+        <group rotation={[4.86,4.7,4.75]} >
+        <Model url={"./mesh/mountain.glb"}/>
+        {/* <Model url={"globe.glb"} position={modelPosition}/> */}
         </group>
         {/* <OrbitControls enableZoom={false} enableRotate={false} /> */}
       </Canvas>
