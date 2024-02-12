@@ -48,7 +48,7 @@ const Model = React.forwardRef(
             start: "top center",
             end: "bottom top",
             scrub: true,
-            markers: true,
+            // markers: true,
             // immediateRender: false,
           },
         });
