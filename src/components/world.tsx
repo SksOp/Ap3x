@@ -25,7 +25,7 @@ export default function World() {
     >
       {" "}
       <Canvas className={cn()} camera={{ position: [0, 0, 10], fov: 15 }}>
-        <Model className="absolute" url={"globe.glb"} />
+        <Model className="absolute" url={"mesh/globe.glb"} />
       </Canvas>
     </div>
   );
