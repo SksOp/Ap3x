@@ -1,28 +1,62 @@
 import React, { useRef } from "react";
-import { Canvas } from "@react-three/fiber";
+import {
+  Canvas,
+  GroupProps,
+  ThreeElements,
+  useThree,
+} from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import { ClassValue } from "clsx";
+import { cn } from "@/lib/utils";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function Model({ url }: { url: string }) {
-  const { scene } = useGLTF(url);
-  const modelRef = useRef();
-  //   const handleMouseWheel = (event) => {
-  //     // Update rotation of the model based on mouse scroll
-  //     const rotationSpeed = 0.001; // Adjust rotation speed as needed
-  //     modelRef.current.rotation.y += event.deltaY * rotationSpeed;
-  //   };
-  return <primitive object={scene} />;
-}
+gsap.registerPlugin(ScrollTrigger);
+
 export default function World() {
-  // Update this path to your model's location
-  //   const modelScale = [10, 10, 10];
   const modelPosition = [0, 0, 0];
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    // <div style={{backgroundColor: "white", height: '90vh', width: '100%', overflow: 'hidden' }}>
-    <div className="bg-background h-[90vh] w-full overflow-hidden">
-      {/* Set overflow to 'hidden' to prevent scrolling */}
-      <Canvas camera={{ position: [0, 0, 10], fov: 15 }}>
-        {/* Set camera position and field of view */}
+    <div
+      ref={containerRef}
+      className=" world-container bg-background h-[90vh] w-full overflow-hidden"
+    >
+      {" "}
+      <Canvas className={cn()} camera={{ position: [0, 0, 10], fov: 15 }}>
+        <Model className="absolute" url={"globe.glb"} />
+      </Canvas>
+    </div>
+  );
+}
+
+const Model = React.forwardRef(
+  ({ url, className }: { url: string; className?: ClassValue }, ref) => {
+    const { scene } = useGLTF(url);
+
+    const { camera } = useThree();
+
+    useGSAP(
+      () => {
+        gsap.to(camera.position, {
+          x: 5,
+          y: 4.0,
+          z: 2.8,
+          scrollTrigger: {
+            trigger: ".world-container",
+            start: "top center",
+            end: "bottom top",
+            scrub: true,
+            markers: true,
+            // immediateRender: false,
+          },
+        });
+      },
+      { scope: ".world-container" }
+    );
+    return (
+      <>
         <ambientLight intensity={0.1} />
         <directionalLight
           position={[5, 0, 5]}
@@ -35,12 +69,15 @@ export default function World() {
           intensity={2}
         />
         <group position={[0.1, -1.1, 0]}>
-          <Model url={"globe.glb"} />
-          {/* <Model url={"globe.glb"} position={modelPosition}/> */}
+          <primitive object={scene} />
         </group>
-        <OrbitControls enableZoom={false} rotateSpeed={0} />
-        {/* Use OrbitControls for user interaction */}
-      </Canvas>
-    </div>
-  );
-}
+
+        <OrbitControls
+          enablePan={false}
+          enableRotate={false}
+          enableZoom={false}
+        />
+      </>
+    );
+  }
+);
