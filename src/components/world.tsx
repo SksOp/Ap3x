@@ -35,7 +35,7 @@ export default function World() {
           intensity={2}
         />
         <group position={[0.1, -1.1, 0]}>
-          <Model url={"globe.glb"} />
+          <Model url={"./mesh/globe.glb"} />
           {/* <Model url={"globe.glb"} position={modelPosition}/> */}
         </group>
         <OrbitControls enableZoom={false} rotateSpeed={0} />

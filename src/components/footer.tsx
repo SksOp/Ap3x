@@ -7,7 +7,7 @@ function Footer() {
     <footer className="p-10 bg-white">
       <Container className="justify-center bg-white items-center p-8 md:p-16 lg:p-2">
         <div className="relative my-10">
-          <img src="./logo.png" alt="Logo" className="w-40 h-auto" />
+          <img src="./assets/logo.png" alt="Logo" className="w-40 h-auto" />
         </div>
         <div className="flex flex-col gap-4 md:flex-row md:justify-center">
           <div className="justify-center items-center mb-8 md:mb-0 md:w-2/4">
