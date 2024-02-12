@@ -19,21 +19,27 @@ function Footer() {
             </p>
           </div>
           <div className="mb-8 md:mb-0 md:w-1/4">
-            <h3 className="text-lg font-semibold mb-2">Hardware</h3>
-            <h3 className="text-lg font-semibold mb-2">Solutions</h3>
-            <h3 className="text-lg font-semibold mb-2">Our Story</h3>
+          <a href=""><h3 className="text-lg font-semibold mb-2">Hardware</h3></a>
+          <a href=""><h3 className="text-lg font-semibold mb-2">Solutions</h3></a>
+          <a href=""><h3 className="text-lg font-semibold mb-2">Our Story</h3></a>
           </div>
           <div className="mb-8 md:mb-0 md:w-1/4">
-            <h3 className="text-lg font-semibold mb-2">Knowledge Block</h3>
-            <h3 className="text-lg font-semibold mb-2">Client Support</h3>
-            <h3 className="text-lg font-semibold mb-2">Contact</h3>
+          <a href=""><h3 className="text-lg font-semibold mb-2">Knowledge Block</h3></a>
+          <a href=""><h3 className="text-lg font-semibold mb-2">Client Support</h3></a>
+          <a href=""><h3 className="text-lg font-semibold mb-2">Contact</h3></a>
           </div>
           <div className="md:mb-0 md:w-1/5">
-            <h3 className="text-lg font-semibold mb-2">hello@46615</h3>
+          <a href=""><h3 className="text-lg font-semibold mb-2">hello@46615</h3></a>
             <div className="flex pl-4">
+              <a href="">
               <Icon icon="mingcute:telegram-fill" className="text-black mr-2" />
+              </a>
+              <a href="">
               <Icon icon="entypo-social:twitter" className="text-black mr-2" />
+              </a>
+              <a href="">
               <Icon icon="entypo-social:linkedin" className="text-black mr-2" />
+              </a>
             </div>
           </div>
         </div>
