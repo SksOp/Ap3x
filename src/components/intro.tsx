@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, PerspectiveCamera } from "@react-three/drei";
 import { Button } from "./ui/button";
@@ -58,16 +58,23 @@ function Model({
   containerRef: React.RefObject<HTMLDivElement>;
 }) {
   const { scene } = useGLTF(url);
-  const modelRef = useRef();
 
   const { camera } = useThree();
 
+  useEffect(() => {
+    camera.fov = 40;
+    camera.near = 0.1;
+    camera.far = 2000;
+    camera.position.set(0, -5, 30);
+  }, [camera]);
+
   useGSAP(
     () => {
-      console.log(containerRef.current);
+      console.log(camera);
       if (!containerRef.current) return;
       gsap.to(camera.position, {
-        y: 100,
+        x: 0,
+        y: 10,
         z: 2.8,
         scrollTrigger: {
           trigger: containerRef.current,
@@ -75,7 +82,7 @@ function Model({
           end: "bottom top",
           scrub: true,
           // markers: true,
-          // immediateRender: false,
+          immediateRender: false,
         },
       });
     },
@@ -84,13 +91,6 @@ function Model({
 
   return (
     <>
-      <PerspectiveCamera
-        makeDefault
-        position={[0, 0, 100]}
-        fov={40}
-        near={0.1}
-        far={2000}
-      />
       <ambientLight intensity={0.1} />
       <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={2} />
       <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={2} />
