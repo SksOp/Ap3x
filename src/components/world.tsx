@@ -25,59 +25,55 @@ export default function World() {
     >
       {" "}
       <Canvas className={cn()} camera={{ position: [0, 0, 10], fov: 15 }}>
-        <Model className="absolute" url={"mesh/globe.glb"} />
+        <Model containerRef={containerRef} url={"mesh/globe.glb"} />
       </Canvas>
     </div>
   );
 }
 
-const Model = React.forwardRef(
-  ({ url, className }: { url: string; className?: ClassValue }, ref) => {
-    const { scene } = useGLTF(url);
+const Model = ({
+  url,
+  containerRef,
+}: {
+  url: string;
+  containerRef: React.RefObject<HTMLDivElement>;
+}) => {
+  const { scene } = useGLTF(url);
 
-    const { camera } = useThree();
+  const { camera } = useThree();
 
-    useGSAP(
-      () => {
-        gsap.to(camera.position, {
-          x: 5,
-          y: 4.0,
-          z: 2.8,
-          scrollTrigger: {
-            trigger: ".world-container",
-            start: "top center",
-            end: "bottom top",
-            scrub: true,
-            // markers: true,
-            // immediateRender: false,
-          },
-        });
-      },
-      { scope: ".world-container" }
-    );
-    return (
-      <>
-        <ambientLight intensity={0.1} />
-        <directionalLight
-          position={[5, 0, 5]}
-          color={"#E3E8EF"}
-          intensity={2}
-        />
-        <directionalLight
-          position={[-5, 0, 5]}
-          color={"#E3E8EF"}
-          intensity={2}
-        />
-        <group position={[0.1, -1.1, 0]}>
-          <primitive object={scene} />
-        </group>
+  useGSAP(
+    () => {
+      gsap.to(camera.position, {
+        x: 5,
+        y: 4.0,
+        z: 2.8,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom top",
+          scrub: true,
+          // markers: true,
+          // immediateRender: false,
+        },
+      });
+    },
+    { scope: containerRef, dependencies: [containerRef.current] }
+  );
+  return (
+    <>
+      <ambientLight intensity={0.1} />
+      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+      <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+      <group position={[0.1, -1.1, 0]}>
+        <primitive object={scene} />
+      </group>
 
-        <OrbitControls
-          enablePan={false}
-          enableRotate={false}
-          enableZoom={false}
-        />
-      </>
-    );
-  }
-);
+      <OrbitControls
+        enablePan={false}
+        enableRotate={false}
+        enableZoom={false}
+      />
+    </>
+  );
+};
