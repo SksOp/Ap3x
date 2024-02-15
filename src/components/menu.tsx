@@ -21,10 +21,10 @@ const menuItems = [
     name: "Research",
     href: paths.research,
   },
-  {
-    name: "Team",
-    href: paths.team,
-  },
+  // {
+  //   name: "Team",
+  //   href: paths.team,
+  // },
 ];
 
 export function Hamburger({
@@ -82,14 +82,14 @@ export function Menu({
 
       <div
         ref={menuRef}
-        className="fixed backdrop-blur-md w-[95vw] h-[95vh] top-[50%] left-[50%]  translate-x-[-50%] translate-y-[-50%] bg-background/70 z-[30] flex flex-col justify-center items-start "
+        className="fixed backdrop-blur-md md:w-[30vw] w-screen md:h-[95vh] h-screen top-[50%] right-[0%] translate-y-[-50%] bg-background/80 z-[30] flex flex-col justify-center items-start "
       >
         {menuItems.map((item) => (
           <MenuItems key={item.name} item={item} />
         ))}
-        <div className="w-full m-4 flex justify-center p-4 cursor-pointer mt-5  bg-[#E3E8EF] rounded-full ">
+        {/* <div className="w-full m-4 flex justify-center p-4 cursor-pointer mt-5  bg-[#E3E8EF] rounded-full ">
           <Logo />
-        </div>
+        </div> */}
       </div>
     </>
   );
@@ -176,7 +176,7 @@ function MenuItems({ item }: { item: { name: string; href: string } }) {
       <p
         ref={anchorRef}
         className={cn(
-          "relative text-2xl z-[30] px-4 p-2 md:text-8xl font-bold  text-black"
+          "relative text-2xl border-b border-black/30 border-dashed z-[30] px-10 py-4 md:text-5xl font-bold  text-black"
         )}
       >
         {item.name}

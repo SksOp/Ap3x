@@ -10,16 +10,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Intro() {
+function Intro({ id }: { id: string }) {
   return (
-    <div className="relative w-full  flex flex-col items-center justify-center h-[110vh] text-white">
+    <div
+      id={id}
+      className="relative w-full gap-1  flex flex-col items-center justify-center h-[110vh] text-white"
+    >
       <h1 className="relative z-[1] text-6xl md:text-8xl xl:text-[12rem] text-center font-bold">
         AP3X CAPITAL
       </h1>
       <Button
-        variant="secondary"
-        size="default"
-        className="relative z-[1] mt-4"
+        variant="default"
+        size="lg"
+        className="relative z-[1] mt-4 text-lg md:text-2xl md:py-7 md:px-10 px-7"
       >
         Get Started
       </Button>

@@ -24,10 +24,10 @@ const root = [
     path: paths.investments,
     element: <Investments />,
   },
-  {
-    path: paths.team,
-    element: <Teams />,
-  },
+  // {
+  //   path: paths.team,
+  //   element: <Teams />,
+  // },
   { path: "*", element: <Navigate to="/404" replace /> },
 ];
 

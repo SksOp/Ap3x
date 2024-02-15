@@ -6,6 +6,7 @@ import { useActiveLink } from "@/hooks/useRouter";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { cn } from "@/lib/utils";
 gsap.registerPlugin(ScrollTrigger);
 
 function Navbar() {
@@ -37,9 +38,14 @@ function Navbar() {
           className="absolute z-20  -top-8"
         />
         <Logo className="relative z-20 p-3" />
-        {/* <Hamburger setIsMenuOpen={setIsMenuOpen} /> */}
       </nav>
       <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <div
+        className={cn(
+          "fixed h-[200vh] w-screen transition-all duration-300 ease-in-out z-10",
+          isMenuOpen ? "bg-black/45" : ""
+        )}
+      />
     </>
   );
 }

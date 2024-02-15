@@ -11,7 +11,7 @@ function Logo({
 }) {
   return (
     <div className={cn("w-40 ", className)}>
-      <a href="/">
+      <a href="/#home">
         <img
           src="./assets/logo.png"
           alt="Logo"
