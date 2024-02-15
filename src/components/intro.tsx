@@ -47,7 +47,7 @@ function Mountain({ className }: { className?: ClassValue }) {
       ref={containerRef}
     >
       <Canvas>
-        <Model containerRef={containerRef} url={"./mesh/mountain_2.glb"} />
+        <Model containerRef={containerRef} url={"./mesh/mountain.glb"} />
       </Canvas>
     </div>
   );
@@ -68,7 +68,7 @@ function Model({
     camera.fov = 40;
     camera.near = 0.1;
     camera.far = 2000;
-    camera.position.set(0, -5, 30);
+    camera.position.set(0, -5, 20);
   }, [camera]);
 
   useGSAP(
@@ -95,7 +95,7 @@ function Model({
   return (
     <>
       <ambientLight intensity={0.1} />
-      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={3} />
       <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={2} />
       <group>
         <primitive object={scene} />

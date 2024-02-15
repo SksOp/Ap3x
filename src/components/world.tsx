@@ -67,7 +67,7 @@ const Model = ({
     start: "top center",
     end: "bottom top",
     scrub: true,
-    markers: true,
+    // markers: true,
   });
 
   useGSAP(
@@ -79,16 +79,16 @@ const Model = ({
       // console.log(camera.position);
       gsap.fromTo(
         camera.position,
-        { y: -1, z: 5 },
+        { y: -1.5, z: 5 },
         {
-          y: 1,
+          y: 0,
           z: 15,
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top center",
             end: "bottom top",
             scrub: true,
-            markers: true,
+            // markers: true,
           },
         }
       );
@@ -102,7 +102,7 @@ const Model = ({
             start: "top center",
             end: "bottom top",
             scrub: true,
-            markers: true,
+            // markers: true,
           },
         }
       );
@@ -112,9 +112,9 @@ const Model = ({
   return (
     <>
       <ambientLight intensity={0.1} />
-      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={1} />
-      <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={1} />
-      <directionalLight position={[5, 0, -5]} color={"#E3E8EF"} intensity={1} />
+      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+      <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+      <directionalLight position={[5, 0, -5]} color={"#E3E8EF"} intensity={2} />
       <directionalLight
         position={[-5, 0, -5]}
         color={"#E3E8EF"}
