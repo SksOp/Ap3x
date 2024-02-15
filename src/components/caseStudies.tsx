@@ -74,7 +74,7 @@ function CaseStudies() {
           trigger: containerRef.current,
           pin: true,
           scrub: 1,
-          start: "top 5%",
+          start: "top 12%",
           // markers: true,
           // snap: 1 / (sections.length - 1),
           end: () => "+=" + Number(containerRef.current?.offsetWidth) + 4,
@@ -111,10 +111,10 @@ function CaseStudies() {
           >
             <Card
               key={item.title}
-              className=" bg-white/35 m-2 flex  max-w-[90vw] p-10 flex-col justify-center min-h-[80vh] "
+              className=" bg-white/35 m-2 flex  max-w-[90vw] p-5 md:p-10 flex-col justify-center min-h-[80vh] max-h-[85vh]"
             >
               <CardHeader>
-                <CardTitle className=" text-4xl lg:text-8xl max-w-[60vw] ">
+                <CardTitle className=" text-4xl lg:text-6xl max-w-[60vw] ">
                   {item.title}
                 </CardTitle>
               </CardHeader>
