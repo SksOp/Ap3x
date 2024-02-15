@@ -1,5 +1,6 @@
 import React from "react";
 import { Slant } from "./svgs/slant";
+import { Button } from "./ui/button";
 
 export interface Investor {
   id: number;
@@ -16,13 +17,13 @@ const Investor: React.FC<InvestorsProps> = ({investors}) => {
     <div className="flex flex-col items-center py-4 relative bg-white">
       <Slant className="absolute top-0 w-full translate-y-[-49%] " />
       <h1 className="text-xl font-bold mb-4">Investors</h1>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4 w-[60vw] ">
         {investors.map((investor, index) => (
-          <div key={investor.id + index} className="relative overflow-hidden group">
+          <div key={investor.id + index} className="overflow-hidden">
             <a href={investor.href ? investor.href:"#"}>
             <img
               draggable={false}
-              className="w-full h-auto transform scale-100 group-hover:scale-110 transition-transform duration-300"
+              className="w-full h-auto max-h-[180]  object-cover transform scale-100 group-hover:scale-110 transition-transform duration-300"
               src={investor.logoLink}
               alt={`${index}`}
             />
@@ -30,6 +31,11 @@ const Investor: React.FC<InvestorsProps> = ({investors}) => {
           </div>
         ))}
       </div>
+      <a href="/investments">
+        <Button className="inline-flex items-center m-4 p-4 h-5">
+          <span className="p-1">View More</span>
+        </Button>
+      </a>
     </div>
   );
 }
