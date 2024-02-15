@@ -43,7 +43,7 @@ function Navbar() {
       <div
         className={cn(
           "fixed h-[200vh] w-screen transition-all duration-300 ease-in-out z-10",
-          isMenuOpen ? "bg-black/45" : ""
+          isMenuOpen ? "bg-black/45" : "hidden"
         )}
       />
     </>
