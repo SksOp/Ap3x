@@ -24,7 +24,7 @@ function Intro({ id }: { id: string }) {
         size="lg"
         className="relative z-[1] mt-4 text-lg md:text-2xl md:py-7 md:px-10 px-7"
       >
-        Get Started
+        Let's Connect
       </Button>
       <Mountain className="absolute z-0 top-0 bg-[#E3E8EF]" />
     </div>
@@ -46,9 +46,9 @@ function Mountain({ className }: { className?: ClassValue }) {
       // pass ref of this div to the canvas
       ref={containerRef}
     >
-      <Canvas>
+      {/* <Canvas>
         <Model containerRef={containerRef} url={"./mesh/mountain_2.glb"} />
-      </Canvas>
+      </Canvas> */}
     </div>
   );
 }
