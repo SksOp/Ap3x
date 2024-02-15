@@ -82,7 +82,7 @@ export function Menu({
 
       <div
         ref={menuRef}
-        className="fixed backdrop-blur-md md:w-[30vw] w-screen md:h-[95vh] h-screen top-[50%] right-[0%] translate-y-[-50%] bg-background/80 z-[30] flex flex-col justify-center items-start "
+        className="fixed backdrop-blur-md md:w-[30vw] w-screen  h-screen top-[50%] right-[0%] translate-y-[-50%] bg-background/80 z-[30] flex flex-col justify-center items-start "
       >
         {menuItems.map((item) => (
           <MenuItems key={item.name} item={item} />
