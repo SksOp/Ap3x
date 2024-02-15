@@ -65,7 +65,7 @@ const RenderInvestments = ({ investment }: { investment: Investment }) => {
         )}
       </div>
       <p className="text-secondary-foreground">{investment.name}</p>
-      <a href={investment.href}>
+      <a href={investment.href} target="_blank" rel="noreferrer">
         <Button className="inline-flex items-center m-0 p-0 h-5">
           <span className="p-1">View</span>
           <Icon icon="lets-icons:size-right-up" className="text-black mr-2" />
