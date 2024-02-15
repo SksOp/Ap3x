@@ -2,6 +2,7 @@ import Banner from "@/components/banner";
 import ResearchView, { ResearchData } from "@/components/research";
 import SearchBar from "@/components/searchBar";
 import Container from "@/components/ui/container";
+import { cardItems } from "@/constants";
 
 const research: ResearchData[] = [
   {
@@ -61,7 +62,7 @@ function Research() {
       <>
         <Banner text="Research" />
         <SearchBar />
-        <ResearchView data={research} />
+        <ResearchView data={cardItems} />
       </>
     </Container>
   );
