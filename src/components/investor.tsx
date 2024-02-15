@@ -16,7 +16,7 @@ const Investor: React.FC<InvestorsProps> = ({ investors }) => {
   return (
     <div className="flex flex-col gap-5 items-center py-4 relative bg-white">
       <Slant className="absolute top-0 w-full translate-y-[-49%] " />
-      <h1 className="text-xl font-bold mb-4">Investors</h1>
+      <h1 className="text-xl font-bold mb-4">Portfolio</h1>
       <div className="grid grid-cols-4 gap-20 w-[50vw] ">
         {investors.map((investor, index) => (
           <div key={investor.id + index} className="flex justify-center">
