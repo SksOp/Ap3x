@@ -77,7 +77,7 @@ function CaseStudies() {
           start: "top 5%",
           // markers: true,
           // snap: 1 / (sections.length - 1),
-          end: () => "+=" + Number(containerRef.current?.offsetWidth),
+          end: () => "+=" + Number(containerRef.current?.offsetWidth) + 4,
         },
       });
     },
