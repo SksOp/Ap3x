@@ -13,7 +13,7 @@ interface InvestorsProps {
   investors: Investor[];
 }
 
-const Investor: React.FC<InvestorsProps> = ({ investors }) => {
+export default function InvestorView({ investors }: { investors: Investor[] }) {
   return (
     <div className="flex flex-col gap-5 items-center py-4 relative bg-white">
       <Slant className="absolute top-0 w-full translate-y-[-49%] " />
@@ -39,6 +39,4 @@ const Investor: React.FC<InvestorsProps> = ({ investors }) => {
       </a>
     </div>
   );
-};
-
-export default Investor;
+}
