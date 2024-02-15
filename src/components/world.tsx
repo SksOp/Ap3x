@@ -30,10 +30,8 @@ export default function World() {
       <Benifits ref={benifitsRef} />
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-background to-transparent">
         <Canvas
-          className={cn(
-            "absolute border border-red-400 top-0 h-full w-screen "
-          )}
-          camera={{ position: [0, 0, 100], fov: 15 }}
+          className={cn("absolute top-0 h-full w-screen ")}
+          camera={{ position: [0, 0, 30], fov: 15 }}
         >
           <Model
             containerRef={containerRef}
@@ -60,60 +58,71 @@ const Model = ({
 }) => {
   const { scene } = useGLTF(url);
 
-  const { camera } = useThree();
+  const three = useThree();
+  const { camera } = three;
+  const threeScene = three.scene;
 
   const containerScrollTrigger = ScrollTrigger.create({
     trigger: containerRef.current,
-    start: "top 80%",
-    end: "bottom 20%",
+    start: "top center",
+    end: "bottom top",
     scrub: true,
     markers: true,
-    // immediateRender: false,
-  });
-
-  const introScrollTrigger = ScrollTrigger.create({
-    trigger: introRef.current,
-    start: "top 80%",
-    end: "bottom 20%",
-    scrub: true,
-    // markers: true,
-    // immediateRender: false,
-  });
-
-  const benifitsScrollTrigger = ScrollTrigger.create({
-    trigger: benifitsRef.current,
-    start: "top 80%",
-    end: "bottom 20%",
-    scrub: true,
-    // markers: true,
-    // immediateRender: false,
   });
 
   useGSAP(
     () => {
-      gsap.to(camera.position, {
-        x: 5,
-        y: 4.0,
-        z: 2.8,
-        scrollTrigger: containerScrollTrigger,
-      });
+      // gsap.set(camera.position, { y: -1, z: 20 });
+      // gsap.set(scene.rotation, { y: 10 });
+      // gsap.set(camera.position, { y: 2, z: 15 });
+      // gsap.set(scene.rotation, { y: 20 });
+      // console.log(camera.position);
+      gsap.fromTo(
+        camera.position,
+        { y: -1, z: 5 },
+        {
+          y: 1,
+          z: 15,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top center",
+            end: "bottom top",
+            scrub: true,
+            markers: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        scene.rotation,
+        { y: 10 },
+        {
+          y: 12,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top center",
+            end: "bottom top",
+            scrub: true,
+            markers: true,
+          },
+        }
+      );
     },
     { scope: containerRef, dependencies: [containerRef.current] }
   );
   return (
     <>
       <ambientLight intensity={0.1} />
-      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={2} />
-      <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={2} />
+      <directionalLight position={[5, 0, 5]} color={"#E3E8EF"} intensity={1} />
+      <directionalLight position={[-5, 0, 5]} color={"#E3E8EF"} intensity={1} />
+      <directionalLight position={[5, 0, -5]} color={"#E3E8EF"} intensity={1} />
+      <directionalLight
+        position={[-5, 0, -5]}
+        color={"#E3E8EF"}
+        intensity={2}
+      />
       <group position={[0.1, -1.1, 0]}>
         <primitive object={scene} />
       </group>
-
-      <OrbitControls
-        enablePan={false}
-        enableRotate={false}
-        enableZoom={false}
-      />
     </>
   );
 };
@@ -201,7 +210,7 @@ const IntroDuctionSection = React.forwardRef<HTMLDivElement, {}>(
     return (
       <div
         ref={ref}
-        className="flex px-10 md:px-32 flex-col justify-center min-h-screen w-full "
+        className="flex px-10 md:px-32 flex-col gap-10 justify-center min-h-screen w-full "
       >
         {IntroData.map((data, index) => (
           <Card
@@ -237,7 +246,10 @@ const BenifitsData = [
 
 const Benifits = React.forwardRef<HTMLDivElement, {}>((props, ref) => {
   return (
-    <div className="flex flex-col gap-10 px-10 md:px-32  min-h-screen w-full ">
+    <div
+      ref={ref}
+      className="flex flex-col gap-10 px-10 md:px-32  min-h-screen w-full "
+    >
       {BenifitsData.map((data, index) => (
         <Card
           className={index % 2 ? "mr-auto" : "ml-auto"}
