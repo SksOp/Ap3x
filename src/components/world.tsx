@@ -171,7 +171,7 @@ const Card = (props: {
     <div
       ref={containerRef}
       className={cn(
-        "relative z-10 m-4 flex border border-white  md:min-w-[400px] flex-col max-w-[80vw] gap-2 md:max-w-max rounded-lg items-center justify-center bg-white/30 p-10",
+        "relative z-10 m-4 flex border border-white  md:min-w-[400px] flex-col max-w-[80vw] gap-2 md:max-w-xl rounded-lg items-center justify-center bg-white/30 p-10",
         props.className
       )}
     >
@@ -198,9 +198,7 @@ const IntroData = [
   {
     title: "Discover AP3X Capital",
     description: [
-      "We are a multi-strategy crypto fund",
-      "Focused on liquid market",
-      "Strategic allocation to Private investements",
+      "We are a multi-strategy crypto fund focused on liquid market strategic allocation to Private investements",
     ],
   },
 ];
