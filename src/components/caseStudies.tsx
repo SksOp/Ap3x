@@ -34,8 +34,8 @@ function CaseStudies() {
           scrub: 1,
           start: "top 12%",
           // markers: true,
-          snap: 1 / sections.length,
-          end: () => "+=" + Number(containerRef.current?.offsetWidth),
+          // snap: 1 / sections.length,
+          end: () => "+=" + Number(containerRef.current?.offsetWidth) + 1,
         },
       });
     },
